@@ -6,32 +6,39 @@
   </head>
   <body class="container">
     <header>
-
-      <button id="complimentButton">Get a compliment</button>
+     
+        <button id="complimentButton">Get a compliment</button>
       <button id="fortuneButton">Get a fortune</button>
       <button id="friendButton">Get random friend</button>
       <button id="candyButton">Get random candy</button>
     </header>
     
-   
+    <h1>Games List</h1>
 
     <main>
-      <div id="games-input">
-        <form>
-           Enter your games played: <br>
-          <input type="text" placeholder="Games here...">
-          <button>Submit</button>
-        </form>
-      </div>
-      <div id="games-box">
-        <label for="games-list">Games:</label>
-        <ul game="games-list"></ul>
 
-      </div>
+      <form>
+        <input 
+        type="text"
+        id="name"
+      placeholder="What's the games name?"/>
 
+      
+      <button>Add Game</button>
+      
+      <button type="button" onClick="counter()">Copies Owned +</button>
+      <button type="button" onclick="counter1()">Copies Owned -</button>
+      <p>Copies: <a id="counter">0</a></p>
 
-    </main>
+    </form>
     
+    <section id="games-container"></section>
+    
+  </main>
+      
+      
+      
+      
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
   </body>

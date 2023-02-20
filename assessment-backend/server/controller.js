@@ -1,7 +1,29 @@
-let arr = ["Skyrim", "CoD", "LoL", "EfT"]
+let games = [
+    {
+        id: 1,
+        name: "Black Ops 1",
+        
+    }
+]
+let gameId = 1
 
 
 module.exports = {
+
+    getGames: (req,res) => {
+        res.status(200).send(games)
+    },
+    createGame: (req,res) => {
+        let newGame = {...req.body, id: gameId}
+        games.push(newGame)
+        res.status(200).send(games)
+        gameId++
+    },
+    deleteGame: (req,res) => {
+        let {index} = req.params
+        games.splice(+index,1)
+        res.status(200).send(games)
+    },
 
     getCompliment: (req, res) => {
         const compliments = ["Gee, you're a smart cookie!", "Cool shirt!", "Your Javascript skills are stellar."];
@@ -44,22 +66,6 @@ module.exports = {
 
 
 
-    getGames: (req,res) => {
-        res.status(200).send(arr)
-    },
-    addGame: (req,res) => {
-        arr.push(req.params.name)
-        res.status(200).send(arr)
-    },
-    deleteGame: (req,res) => {
-        let { index } = req.params
-        arr.splice(+index,1)
-        res.status(200).send(arr)
-    },
-    editGames: (req,res) => {
-        let { index, newGame } = req.body
-        arr.splice(+index,1,newGame)
-        res.status(200).send(arr)
-    }
+    
 
 }
